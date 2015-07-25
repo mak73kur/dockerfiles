@@ -16,6 +16,8 @@ EXPOSE 8000
 RUN mkdir -p /var/www/src
 RUN mkdir -p /var/www/public
 
+# Placeholder files, after first run /var/www
+# should be replaced with a volume 
 COPY package.json /var/www/src/
 COPY index.html /var/www/public/
 RUN chown -R devel /var/www/
