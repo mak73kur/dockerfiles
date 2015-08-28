@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-ENV REFRESHED_AT 2015-05-15
+ENV REFRESHED_AT 2015-08-28
 RUN apt-get -qq update
 
 # Install php and python
@@ -27,7 +27,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     pip install Fabric==1.10.0 sphinx==1.2.3
 
 # Install App Engine SDK
-ADD https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.19.zip /tmp/gae.zip
+ADD https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.25.zip /tmp/gae.zip
 RUN cd /usr/share && unzip /tmp/gae.zip
 
 # Configuration
