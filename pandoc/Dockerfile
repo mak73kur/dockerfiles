@@ -1,9 +1,12 @@
-FROM ubuntu
+FROM ubuntu:14.04
 
 RUN echo "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe" > /etc/apt/sources.list
 
+ENV REFRESHED_AT 2016-01-30
+RUN apt-get -qq update
+
 # install haskell
-RUN apt-get update -y && apt-get install -y haskell-platform
+RUN apt-get install -y haskell-platform
 
 # install pandoc
 RUN cabal update && cabal install pandoc
