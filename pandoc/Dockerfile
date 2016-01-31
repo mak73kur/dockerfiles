@@ -12,5 +12,5 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 RUN mkdir -p /source
 WORKDIR /source
 
-ENTRYPOINT ["/.cabal/bin/pandoc"]
+ENTRYPOINT ["pandoc"]
 CMD ["--help"]
