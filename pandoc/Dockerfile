@@ -1,18 +1,13 @@
 FROM ubuntu:14.04
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe" > /etc/apt/sources.list
-
 ENV REFRESHED_AT 2016-01-30
 RUN apt-get -qq update
 
 # install haskell
-RUN apt-get install -y haskell-platform
-
-# install pandoc
-RUN cabal update && cabal install pandoc
-
-# install latex packages
-RUN apt-get update -y && apt-get install -y texlive-latex-base texlive-xetex latex-xcolor texlive-math-extra texlive-latex-extra texlive-fonts-extra lmodern biblatex curl wget git fontconfig make
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    apt-get install -y pandoc texlive-latex-base texlive-xetex latex-xcolor \
+    texlive-math-extra texlive-latex-extra texlive-fonts-extra \
+    lmodern curl wget git fontconfig make
 
 RUN mkdir -p /source
 WORKDIR /source
